@@ -2,7 +2,9 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
+import pages.CLAddContactPage;
 import pages.CLAddUserPage;
+import pages.CLContactListPage;
 import pages.CLhomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -22,9 +24,12 @@ public class C01_ContactList {
 
 
     @Test
-    void ContactListTest() {
+    void ContactListTest() throws InterruptedException {
         CLhomePage cLhomePage = new CLhomePage();
         CLAddUserPage cLAddUserPage = new CLAddUserPage();
+        CLContactListPage clContactListPage=new CLContactListPage();
+        CLAddContactPage clAddContactPage = new CLAddContactPage();
+
         Driver.getDriver().get(ConfigReader.getProperty("cl_url"));
 
         cLhomePage.signup.click();
@@ -34,6 +39,15 @@ public class C01_ContactList {
         cLAddUserPage.email.sendKeys(Faker.instance().internet().emailAddress());
         cLAddUserPage.password.sendKeys(Faker.instance().internet().password());
         cLAddUserPage.submit.click();
+        clContactListPage.addContact.click();
+
+        clAddContactPage.firstName.sendKeys(Faker.instance().name().firstName());
+        clAddContactPage.lastName.sendKeys(Faker.instance().name().lastName());
+        Thread.sleep(3000); // add expilt wait
+        clAddContactPage.birthdate.sendKeys(Faker.instance().date().birthday().toString());
+        Thread.sleep(3000);
+        clAddContactPage.submit.click();
+
         Driver.closeDriver();
 
 

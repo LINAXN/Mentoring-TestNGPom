@@ -1,14 +1,17 @@
+package pages;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class CLAddNewContact {
+public class CLContactListPage {
 
-    public CLAddNewContact(){
+    public CLContactListPage(){
         PageFactory.initElements(Driver.getDriver(),this);
 
     }
-    @FindBy(id = "signup")
-    public WebElement signup;
+
+    @FindBy(id = "add-contact")
+    public WebElement addContact;
 }

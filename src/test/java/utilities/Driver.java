@@ -2,7 +2,11 @@ package utilities;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -16,14 +20,26 @@ public class Driver {
     //This creates a new WebDriver instance if it does not exist.
     public static WebDriver getDriver() {
 
-        if (driver==null){
-            driver = new ChromeDriver();
+        if (driver == null) {
+            ChromeOptions options = new ChromeOptions();
+
+            // Disable Chrome autofill and save address prompts
+            options.addArguments("--incognito");
+            options.addArguments("--disable-autofill-keyboard-accessory-view");
+            options.addArguments("--disable-save-password-bubble");
+            options.addArguments("--disable-popup-blocking");
+
+            driver = new ChromeDriver(options);
         }
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
+
+
+
+
 
     //Safely close the driver
     public static void closeDriver() {
@@ -32,5 +48,8 @@ public class Driver {
             driver = null;
         }
     }
+
+
+
 
 }

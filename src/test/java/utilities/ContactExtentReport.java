@@ -9,8 +9,7 @@ import org.testng.ITestResult;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportManager {
-
+public class ContactExtentReport {
     // ThreadLocal to maintain separate ExtentTest instances per thread
     private static ThreadLocal<ExtentTest> extentTestThread = new ThreadLocal<>();
     private static ExtentReports extent;
@@ -29,11 +28,10 @@ public class ExtentReportManager {
         extent.attachReporter(sparkReporter);
         extent.setSystemInfo("Environment", "QA");
         extent.setSystemInfo("User", System.getProperty("user.name"));
-        extent.setSystemInfo("Team", "SDA");
+        extent.setSystemInfo("Team", "Contact");
     }
-
     // Private constructor to prevent instantiation
-    private ExtentReportManager() {
+    private ContactExtentReport() {
     }
 
     // Create a test in the report
@@ -84,3 +82,4 @@ public class ExtentReportManager {
         return extentTestThread.get();
     }
 }
+

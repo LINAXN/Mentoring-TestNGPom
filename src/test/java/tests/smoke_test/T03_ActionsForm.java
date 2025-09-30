@@ -1,21 +1,18 @@
-package tests;
+package tests.smoke_test;
 
 import org.testng.annotations.Test;
 import pages.ActionsFormPage;
 import utilities.Driver;
 
-import static utilities.Driver.getDriver;
+public class T03_ActionsForm {
+    /*
+        Go to https://claruswaysda.github.io/ActionsForm.html
+        Fill form and submit
+        Do all actions and assert
+    */
 
-public class C04_ActionsForm {
-     /*
- Go to https://claruswaysda.github.io/ActionsForm.html
- Fill form and submit
- Do all actions and assert
-
- */
-
-    @Test(threadPoolSize = 10 , invocationCount = 10)
-    void actionsFormTest() {
+    @Test
+    void C03_ActionsFormTest() {
         ActionsFormPage formPage = new ActionsFormPage();
 
 //        Go to https://claruswaysda.github.io/ActionsForm.html
@@ -32,12 +29,10 @@ public class C04_ActionsForm {
                 .handleJSAlertPasscode()
                 .clickSubmit();
 
+//        Do all actions and assert
+
 
         Driver.closeDriver();
 
-
-//        Do all actions and assert
-
     }
-
 }

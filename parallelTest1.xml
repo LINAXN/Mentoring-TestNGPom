@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelLoginSuite" parallel="methods" thread-count="3">
+
+<test name="LoginTests" time-out="30000">
+    <classes>
+        <class name="tests.PositiveLoginTest" />
+        <class name="tests.NegativeLoginTest" />
+    </classes>
+</test>
+
+</suite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="classes" thread-count="3">
+
+    <test verbose="2" preserve-order="true" name="smoke_test">
+
+        <classes>
+            <class name="tests.smoke_test.T01_ContactList"></class>
+            <class name="tests.smoke_test.T02_AddRecordFluentPOM"></class>
+            <class name="tests.smoke_test.T03_ActionsForm"></class>
+        </classes>
+
+    </test>
+
+</suite>

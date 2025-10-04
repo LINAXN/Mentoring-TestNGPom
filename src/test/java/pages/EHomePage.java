@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utilities.Driver;
 
 public class EHomePage {
     private WebDriver driver;
@@ -13,19 +14,19 @@ public class EHomePage {
 
 
     public EHomePage clickSignup() {
-        driver.findElement(this.SignLog).click();
+        Driver.getDriver().findElement(this.SignLog).click();
         return this ;
     }
     public EHomePage enterName(String name) {
-        driver.findElement(this.nameInput).sendKeys(name);
+        Driver.getDriver().findElement(this.nameInput).sendKeys(name);
         return this;
     }
     public EHomePage enterEmail(String email) {
-        driver.findElement(this.EmailInput).sendKeys(email);
+        Driver.getDriver().findElement(this.EmailInput).sendKeys(email);
         return this;
     }
     public EHomePage clickSignupbtn() {
-        driver.findElement(this.signupbtn).click();
+        Driver.getDriver().findElement(this.signupbtn).click();
         return this;
     }
 }

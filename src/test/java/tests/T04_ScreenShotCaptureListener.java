@@ -12,7 +12,7 @@ public class T04_ScreenShotCaptureListener {
      @Test
         public void testThatFails() {
             Driver.getDriver().get("https://automationexercise.com/products");
-            // Intentional failure
+            //  failure
             String wrongTitle = Driver.getDriver().getTitle();
             Assert.assertTrue(wrongTitle.contains("lololololoo"), "Intentional failure");
         }

@@ -23,16 +23,28 @@ public class DataProviderUtilities {
                 {"Charlie", "40", "Canada"}
         };
     }
-    @DataProvider(name = "searchTerms", parallel = true)  // enable parallel execution
-    public static Object[][] getSearchTerms() {
-        return new Object[][]{
-                {"Selenium"},
-                {"Java"},
-                {"TestNG"},
-                {"Automation"},
-                {"WebDriver"}
+//    @DataProvider(name = "searchTerms", parallel = true)  // enable parallel execution
+//    public static Object[][] getSearchTerms() {
+//        return new Object[][]{
+//                {"Selenium"},
+//                {"Java"},
+//                {"TestNG"},
+//                {"Automation"},
+//                {"WebDriver"}
+//        };
+//    }
+
+    @DataProvider(name = "searchTerms", parallel = true)
+    public Object[][] getSearchTerms() {
+        return new Object[][] {
+                { "dress" },
+                { "top" },
+                { "jeans" },
+                { "tshirt" },
+                { "saree" }
         };
     }
+
     @DataProvider(name = "faker")
     public Object[][] getFakeRecords() {
         Faker faker = new Faker();

@@ -1,6 +1,7 @@
 package utilities;
 
 import com.aventstack.extentreports.Status;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.*;
@@ -104,9 +105,9 @@ public class MyTestListener implements ITestListener, IRetryAnalyzer, IAnnotatio
         annotation.setRetryAnalyzer(MyTestListener.class);
     }
 
-//    @Attachment(value = "Failed Screen", type = "image/png",fileExtension = "png")
-//    public static byte[] addFailedScreenshot(){
-//        return ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-//    }
+    @Attachment(value = "Failed Screen", type = "image/png",fileExtension = "png")
+    public static byte[] addFailedScreenshot(){
+        return ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+    }
 
 }

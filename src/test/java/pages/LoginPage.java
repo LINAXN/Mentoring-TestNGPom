@@ -13,6 +13,7 @@ public class LoginPage {
 
     public LoginPage enterUsername(String username) {
         Driver.getDriver().findElement(this.usernameField).sendKeys(username);
+
         return this;
     }
 
@@ -33,6 +34,7 @@ public class LoginPage {
     }
 
     public boolean isErrorMessageDisplayed() {
+
         return   Driver.getDriver().findElements(invalidCredMsg).size() > 0;
     }
 }

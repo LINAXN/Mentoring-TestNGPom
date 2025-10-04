@@ -19,13 +19,13 @@ Do negative test with all scenarios
         SoftAssert softAssert = new SoftAssert();
         ComprehensiveNegativePage signInPage = new ComprehensiveNegativePage(softAssert);
 
-        // 1️⃣ Empty username/password
+        // Empty username/password
         signInPage.enterUsername("")
                 .enterPassword("")
                 .clickSignIn();
         String msg = Driver.getDriver().findElement(By.id("username"))
                 .getAttribute("validationMessage");
-        softAssert.assertEquals(msg, "Please fill out this field.", "❌ Empty username validation failed");
+        softAssert.assertEquals(msg, "Please fill out this field.", " Empty username validation failed");
         softAssert.assertAll();
     }
     @Test
@@ -33,7 +33,7 @@ Do negative test with all scenarios
         Driver.getDriver().get("https://claruswaysda.github.io/signIn.html");
         SoftAssert softAssert = new SoftAssert();
         ComprehensiveNegativePage signInPage = new ComprehensiveNegativePage(softAssert);
-        // 2️⃣ Invalid username
+        // Invalid username
         signInPage.enterUsername("notAdmin")
                 .enterPassword("123")
                 .clickSignIn()
@@ -45,7 +45,7 @@ Do negative test with all scenarios
         Driver.getDriver().get("https://claruswaysda.github.io/signIn.html");
         SoftAssert softAssert = new SoftAssert();
         ComprehensiveNegativePage signInPage = new ComprehensiveNegativePage(softAssert);
-        // 3️⃣ Wrong password
+        //  Wrong password
         signInPage.enterUsername("admin")
                 .enterPassword("wrongPass")
                 .clickSignIn()
@@ -57,7 +57,7 @@ Do negative test with all scenarios
         Driver.getDriver().get("https://claruswaysda.github.io/signIn.html");
         SoftAssert softAssert = new SoftAssert();
         ComprehensiveNegativePage signInPage = new ComprehensiveNegativePage(softAssert);
-        // 4️⃣ XSS attempt
+        //  XSS attempt
         signInPage.enterUsername("<script>alert('XSS')</script>")
                 .enterPassword("hack123")
                 .clickSignIn()

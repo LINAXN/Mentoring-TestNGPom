@@ -34,4 +34,16 @@ public class CaptureScreenshot {
 
         return filePath;
     }
+
+    // 🔹 الدالة الثانية: ترجع الصورة كـ Bytes (مخصصة لـ Allure)
+    public static byte[] takeScreenshotBytes(WebDriver driver, String testName) {
+        try {
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            return Files.readAllBytes(screenshot.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new byte[0];
+        }
+    }
 }
+

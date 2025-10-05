@@ -25,7 +25,6 @@ public class EProductsPage {
     @Step("Add product to cart")
     public EProductsPage addProductToCart(int productId) {
         By btn = By.cssSelector("a.btn.add-to-cart[data-product-id='" + productId + "']");
-        takeScreenshotAllure("add to cart product id " + productId);
         Driver.getDriver().findElement(btn).click();
 
         // Wait for Continue Shopping button to appear
@@ -46,9 +45,7 @@ public class EProductsPage {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         try {
             wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
-            takeScreenshotAllure("continue after add to cart ");
             Driver.getDriver().findElement(continueBtn).click();
-
         } catch (Exception e) { }
         return this;
     }

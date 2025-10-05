@@ -48,7 +48,8 @@ public class T06_ECommerceAllureTest {
                 .enterZipcode(faker.address().zipCode())
                 .enterMobileNumber(faker.phoneNumber().cellPhone())
                 .clickCreateAccountButton()
-                .clickContinueButton();
+                .clickContinueButton()
+        .takeScreenshotAllure("Signup Complete");
 
         EProductsPage productsPage = new EProductsPage();
         productsPage.clickProductsButton();
@@ -56,19 +57,19 @@ public class T06_ECommerceAllureTest {
                 .continueShopping()
                 .addProductToCart(2)
                 .continueShopping()
-                .addProductToCart(3);
+                .addProductToCart(3)
+        .takeScreenshotAllure("3 Products Added to Cart");
         // Cart
         ECartPage cartPage = productsPage.viewCart();
-        cartPage.assertTotalProductsInCart(3);
-
+        cartPage.assertTotalProductsInCart(3)
+        .takeScreenshotAllure("Cart with 3 products");
         //checkout
         ECheckoutPage checkout = cartPage.proceedToCheckout();
         checkout
                 .placeOrder()
                 .enterCardDetails("Lina", "4111111111111111", "123", "12", "2025")
                 .confirmPayment()
-                .takeScreenshot("Checkout Complete")
-                .assertOrderSuccess("Congratulations! Your order has been confirmed!");
-
+                .assertOrderSuccess("Congratulations! Your order has been confirmed!")
+                .takeScreenshotAllure("Checkout Complete");
     }
 }

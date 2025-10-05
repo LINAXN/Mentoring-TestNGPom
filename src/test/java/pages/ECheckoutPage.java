@@ -59,13 +59,11 @@ public class ECheckoutPage {
         return this;
     }
 
-    // --- Capture screenshot after checkout --- for extend report
+    // --- Capture screenshot after checkout ---
     public ECheckoutPage takeScreenshot(String name) {
         CaptureScreenshot.takeScreenshot(Driver.getDriver(), name);
         return this;
     }
-
-// --- Capture screenshot with Allure ---
     @Attachment(value = "{name}", type = "image/png")
     public byte[] takeScreenshotAllure(String name) {
         return CaptureScreenshot.takeScreenshotBytes(Driver.getDriver(), name);

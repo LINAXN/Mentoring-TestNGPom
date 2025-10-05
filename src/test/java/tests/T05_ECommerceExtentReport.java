@@ -45,7 +45,7 @@ void eCommerceTest() {
         ESignupPage signupPage = new ESignupPage();
         signupPage.selectTitle("Mr")
                 .enterPassword("12345")
-                .selectDateOfBirth("10", "May", "1990")
+                .selectDateOfBirth("10", "May", "2001")
                 .checkNewsletter()
                 .checkOffers()
                 .enterFirstName(faker.name().firstName())
@@ -61,13 +61,13 @@ void eCommerceTest() {
                 .clickCreateAccountButton()
                 .clickContinueButton();
 
-        test.pass("Account successfully created and logged in.");
+        test.pass("Account successfully created and logged in");
 
-        test.info("Navigating to products page...");
+        test.info("Navigating to products page");
         EProductsPage productsPage = new EProductsPage();
         productsPage.clickProductsButton();
 
-        test.info("Adding products to cart...");
+        test.info("Adding products to cart");
         productsPage.addProductToCart(1);
         String firstProductScreenshot = CaptureScreenshot.takeScreenshot(Driver.getDriver(), "AddFirstProduct");
         test.pass("First product added to cart").addScreenCaptureFromPath(firstProductScreenshot);
@@ -87,7 +87,7 @@ void eCommerceTest() {
         ECartPage cartPage = productsPage.viewCart();
         String cartScreenshot = CaptureScreenshot.takeScreenshot(Driver.getDriver(), "CartPage");
         cartPage.assertTotalProductsInCart(3);
-        test.pass("Viewed cart with 3 products").addScreenCaptureFromPath(cartScreenshot);
+        test.pass(" cart with 3 products").addScreenCaptureFromPath(cartScreenshot);
 //
         ECheckoutPage checkout = cartPage.proceedToCheckout();
         checkout

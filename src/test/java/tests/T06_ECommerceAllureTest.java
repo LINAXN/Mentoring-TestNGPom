@@ -27,14 +27,11 @@ public class T06_ECommerceAllureTest {
                 .enterName(faker.name().firstName())
                 .enterEmail(faker.internet().emailAddress())
                 .clickSignupbtn();
-
-
-
         // Products
         ESignupPage signupPage = new ESignupPage();
         signupPage.selectTitle("Mr")
                 .enterPassword("12345")
-                .selectDateOfBirth("10", "May", "1990")
+                .selectDateOfBirth("10", "May", "2001")
                 .checkNewsletter()
                 .checkOffers()
                 .enterFirstName(faker.name().firstName())
@@ -67,7 +64,7 @@ public class T06_ECommerceAllureTest {
         ECheckoutPage checkout = cartPage.proceedToCheckout();
         checkout
                 .placeOrder()
-                .enterCardDetails("Lina", "4111111111111111", "123", "12", "2025")
+                .enterCardDetails("Lina", "6111111311115111", "123", "12", "2001")
                 .confirmPayment()
                 .assertOrderSuccess("Congratulations! Your order has been confirmed!")
                 .takeScreenshotAllure("Checkout Complete");

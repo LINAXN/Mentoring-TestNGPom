@@ -38,7 +38,7 @@ public class T03_DataProviderParallelExecution {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".features_items")));
 // list of products
         List<WebElement> products = driver.findElements(By.cssSelector(".product-image-wrapper"));
-        Assert.assertTrue(products.size() > 0, "No products");
+        Assert.assertTrue(!products.isEmpty(), "No products");
 
         System.out.println("Search done for: " + searchTerm + " | Products found: " + products.size());
 

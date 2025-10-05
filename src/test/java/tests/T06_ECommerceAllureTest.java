@@ -13,7 +13,7 @@ public class T06_ECommerceAllureTest {
     @Feature("User Management: Signup")
     @Feature("Shopping Cart")
     @Feature("Checkout Process")
-    @Story("Complete e-commerce user flow")
+    @Story("Complete e-commerce")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that a new user can sign up, add 3 products to cart, and complete checkout successfully.")
     @Test
